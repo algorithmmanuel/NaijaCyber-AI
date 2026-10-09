@@ -1,0 +1,977 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NaijaCyber AI | Cybersecurity Learning</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    body {
+      margin: 0;
+      background: #080f1e;
+      color: #e8eef8;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    header {
+      padding: 22px 6%;
+      background: #101b30;
+      border-bottom: 1px solid #263854;
+    }
+
+    .brand {
+      font-size: 23px;
+      font-weight: 800;
+    }
+
+    .brand span {
+      color: #38dfbd;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 35px 24px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-top: 34px;
+    }
+
+    p {
+      color: #aab9cf;
+      line-height: 1.6;
+    }
+
+    .tag {
+      display: inline-block;
+      color: #38dfbd;
+      background: #14382f;
+      padding: 7px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .card,
+    .panel {
+      background: #121f34;
+      border: 1px solid #2a3b54;
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .card h3 {
+      margin-top: 10px;
+    }
+
+    button {
+      background: #38dfbd;
+      color: #071c1a;
+      font-weight: bold;
+      border: 0;
+      padding: 11px 17px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover:not(:disabled) {
+      background: #77f5da;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: wait;
+    }
+
+    input,
+    select {
+      background: #091426;
+      color: white;
+      border: 1px solid #455875;
+      padding: 12px;
+      border-radius: 8px;
+    }
+
+    input {
+      width: 100%;
+    }
+
+    select {
+      min-width: 140px;
+    }
+
+    .chat-controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .chat-controls input {
+      flex: 1;
+      min-width: 180px;
+    }
+
+    #chat-response {
+      white-space: pre-wrap;
+      color: #d1e7fa;
+      min-height: 45px;
+      margin-top: 20px;
+      line-height: 1.7;
+    }
+
+    .progress {
+      height: 10px;
+      background: #2b3a54;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    #progress-fill {
+      height: 100%;
+      width: 0;
+      background: #38dfbd;
+      transition: width 0.3s ease;
+    }
+
+    .small {
+      font-size: 13px;
+    }
+
+    .model-status {
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: #0b1729;
+      color: #aab9cf;
+      margin-bottom: 18px;
+    }
+
+    .model-status.online {
+      color: #38dfbd;
+    }
+
+    .model-status.error {
+      color: #ffb4b4;
+    }
+
+    .tutor-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .tutor-heading h2 {
+      margin: 0;
+    }
+
+    .response-source {
+      color: #38dfbd;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .response-meta {
+      color: #8fa6c4;
+      font-size: 12px;
+      margin-top: 15px;
+    }
+
+    #quiz-options label {
+      display: block;
+      margin: 14px 0;
+      cursor: pointer;
+    }
+
+    #quiz-options input {
+      width: auto;
+      margin-right: 12px;
+    }
+
+    #quiz-feedback {
+      margin-top: 20px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 25px 16px;
+      }
+
+      h1 {
+        font-size: 27px;
+      }
+
+      .chat-controls {
+        flex-direction: column;
+      }
+
+      .chat-controls input,
+      .chat-controls select,
+      .chat-controls button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="brand">
+      🛡️ Naija<span>Cyber AI</span>
+    </div>
+  </header>
+
+  <main>
+
+    <span class="tag">
+      CYBERSECURITY LEARNING PLATFORM
+    </span>
+
+    <h1>Welcome, Cyber Defender!</h1>
+
+    <p>
+      Learn cybersecurity through interactive missions
+      and a multilingual AI tutor powered by N-ATLaS.
+    </p>
+
+    <!-- LEARNING PROGRESS -->
+
+    <div class="panel">
+      <strong>Your Learning Progress</strong>
+
+      <p id="progress-label">
+        0 of 3 missions completed
+      </p>
+
+      <div class="progress">
+        <div id="progress-fill"></div>
+      </div>
+    </div>
+
+    <!-- MISSIONS -->
+
+    <h2>Choose Your Mission</h2>
+
+    <div id="missions" class="cards">
+      <p>Loading missions...</p>
+    </div>
+
+    <!-- INTERACTIVE QUIZ -->
+
+    <section id="mission-play" class="panel" hidden>
+
+      <h2 id="quiz-title"></h2>
+
+      <p id="quiz-scenario"></p>
+
+      <form id="quiz-form">
+
+        <div id="quiz-options"></div>
+
+        <button type="submit">
+          Submit Answer
+        </button>
+
+      </form>
+
+      <div
+        id="quiz-feedback"
+        role="status"
+        aria-live="polite">
+      </div>
+
+    </section>
+
+    <!-- N-ATLaS TUTOR -->
+
+    <section style="margin-top: 35px;">
+
+      <div class="tutor-heading">
+
+        <h2>Ask Your Cybersecurity Tutor</h2>
+
+        <span class="tag">
+          N-ATLaS Integration
+        </span>
+
+      </div>
+
+      <div class="panel">
+
+        <p
+          id="model-status"
+          class="small model-status"
+          role="status">
+
+          Checking AI model configuration...
+
+        </p>
+
+        <form
+          id="tutor-form"
+          class="chat-controls">
+
+          <select
+            id="language"
+            aria-label="Response language">
+
+            <option value="English">
+              English
+            </option>
+
+            <option value="Hausa">
+              Hausa
+            </option>
+
+            <option value="Igbo">
+              Igbo
+            </option>
+
+            <option value="Yoruba">
+              Yoruba
+            </option>
+
+          </select>
+
+          <input
+            id="question"
+            placeholder="Ask a cybersecurity question..."
+            maxlength="1800"
+            required>
+
+          <button
+            id="ask-button"
+            type="submit">
+
+            Ask
+
+          </button>
+
+        </form>
+
+        <div
+          id="chat-response"
+          role="status"
+          aria-live="polite">
+        </div>
+
+        <div
+          id="response-meta"
+          class="response-meta">
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    // ========================================================
+    // APPLICATION CONFIGURATION
+    // ========================================================
+
+    const API = "";
+
+    const STORAGE_KEY =
+      "naijacyber-completed-v1";
+
+    let activeMission = null;
+
+    let missions = [];
+
+    let modelConfigured = false;
+
+    // ========================================================
+    // PERSISTENT LEARNING PROGRESS
+    // ========================================================
+
+    function readProgress() {
+
+      try {
+
+        const saved = JSON.parse(
+          localStorage.getItem(STORAGE_KEY) || "[]"
+        );
+
+        return new Set(
+          Array.isArray(saved)
+            ? saved.filter(id =>
+                [1, 2, 3].includes(id)
+              )
+            : []
+        );
+
+      } catch {
+
+        return new Set();
+
+      }
+    }
+
+    const completedMissions = readProgress();
+
+    function updateProgress() {
+
+      const count = completedMissions.size;
+
+      const total = missions.length || 3;
+
+      document.getElementById(
+        "progress-label"
+      ).textContent =
+        `${count} of ${total} missions completed`;
+
+      document.getElementById(
+        "progress-fill"
+      ).style.width =
+        `${(count / total) * 100}%`;
+
+      document.querySelectorAll(
+        "[data-mission]"
+      ).forEach(button => {
+
+        const missionId =
+          Number(button.dataset.mission);
+
+        const completed =
+          completedMissions.has(missionId);
+
+        button.textContent = completed
+          ? "Completed - Replay"
+          : "Start Mission";
+
+      });
+    }
+
+    // ========================================================
+    // LOAD MISSIONS
+    // ========================================================
+
+    async function loadMissions() {
+
+      const container =
+        document.getElementById("missions");
+
+      try {
+
+        const response = await fetch(
+          `${API}/missions`
+        );
+
+        if (!response.ok) {
+          throw new Error(
+            "Failed to load missions"
+          );
+        }
+
+        const data = await response.json();
+
+        missions = data.missions;
+
+        container.replaceChildren();
+
+        missions.forEach(mission => {
+
+          const card =
+            document.createElement("div");
+
+          card.className = "card";
+
+          const title =
+            document.createElement("h3");
+
+          title.textContent = mission.title;
+
+          const description =
+            document.createElement("p");
+
+          description.textContent =
+            mission.description;
+
+          const difficulty =
+            document.createElement("p");
+
+          difficulty.className = "small";
+
+          difficulty.textContent =
+            mission.difficulty;
+
+          const button =
+            document.createElement("button");
+
+          button.dataset.mission =
+            mission.id;
+
+          button.onclick = () =>
+            openQuiz(mission.id);
+
+          card.append(
+            title,
+            description,
+            difficulty,
+            button
+          );
+
+          container.append(card);
+
+        });
+
+        updateProgress();
+
+      } catch (error) {
+
+        container.textContent =
+          error.message;
+
+      }
+    }
+
+    // ========================================================
+    // OPEN INTERACTIVE MISSION
+    // ========================================================
+
+    async function openQuiz(missionId) {
+
+      const panel =
+        document.getElementById(
+          "mission-play"
+        );
+
+      const feedback =
+        document.getElementById(
+          "quiz-feedback"
+        );
+
+      panel.hidden = false;
+
+      feedback.textContent =
+        "Loading mission...";
+
+      try {
+
+        const response = await fetch(
+          `${API}/quiz/${missionId}`
+        );
+
+        if (!response.ok) {
+          throw new Error(
+            "Mission unavailable"
+          );
+        }
+
+        const quiz = await response.json();
+
+        activeMission = missionId;
+
+        document.getElementById(
+          "quiz-title"
+        ).textContent = quiz.title;
+
+        document.getElementById(
+          "quiz-scenario"
+        ).textContent = quiz.scenario;
+
+        const options =
+          document.getElementById(
+            "quiz-options"
+          );
+
+        options.replaceChildren();
+
+        quiz.options.forEach(
+          (option, index) => {
+
+            const label =
+              document.createElement("label");
+
+            const radio =
+              document.createElement("input");
+
+            radio.type = "radio";
+
+            radio.name = "quiz-answer";
+
+            radio.value = index;
+
+            radio.required = true;
+
+            label.append(
+              radio,
+              document.createTextNode(option)
+            );
+
+            options.append(label);
+
+          }
+        );
+
+        feedback.textContent = "";
+
+        panel.scrollIntoView({
+          behavior: "smooth"
+        });
+
+      } catch (error) {
+
+        activeMission = null;
+        feedback.textContent =
+          error.message;
+
+      }
+    }
+
+    // ========================================================
+    // SUBMIT MISSION ANSWER
+    // ========================================================
+
+    document.getElementById(
+      "quiz-form"
+    ).addEventListener(
+      "submit",
+      async event => {
+
+        event.preventDefault();
+
+        const selected =
+          document.querySelector(
+            'input[name="quiz-answer"]:checked'
+          );
+
+        if (
+          !selected ||
+          activeMission === null
+        ) {
+          return;
+        }
+
+        const missionId = activeMission;
+
+        const feedback =
+          document.getElementById(
+            "quiz-feedback"
+          );
+
+        feedback.textContent =
+          "Checking your answer...";
+
+        try {
+
+          const response = await fetch(
+            `${API}/quiz/${missionId}/submit`,
+            {
+              method: "POST",
+
+              headers: {
+                "Content-Type":
+                  "application/json"
+              },
+
+              body: JSON.stringify({
+                selected_index:
+                  Number(selected.value)
+              })
+            }
+          );
+
+          if (!response.ok) {
+            throw new Error(
+              "Submission failed"
+            );
+          }
+
+          const result =
+            await response.json();
+
+          feedback.textContent =
+            `${result.correct
+              ? "Correct!"
+              : "Not quite."} ` +
+            `Score: ${result.score}/100. ` +
+            result.explanation;
+
+          if (result.correct) {
+
+            completedMissions.add(
+              missionId
+            );
+
+            localStorage.setItem(
+              STORAGE_KEY,
+              JSON.stringify(
+                [...completedMissions]
+              )
+            );
+
+            updateProgress();
+
+          }
+
+        } catch (error) {
+
+          feedback.textContent =
+            error.message;
+
+        }
+      }
+    );
+
+    // ========================================================
+    // CHECK N-ATLaS STATUS
+    // ========================================================
+
+    async function updateModelStatus() {
+
+      const element =
+        document.getElementById(
+          "model-status"
+        );
+
+      element.classList.remove(
+        "online",
+        "error"
+      );
+
+      try {
+
+        const response = await fetch(
+          `${API}/ai/status`
+        );
+
+        if (!response.ok) {
+          throw new Error(
+            "Status unavailable"
+          );
+        }
+
+        const data = await response.json();
+
+        modelConfigured =
+          Boolean(data.endpoint_configured);
+
+        if (modelConfigured) {
+
+          element.textContent =
+            "N-ATLaS endpoint configured — " +
+            "temporary Google Colab connection. " +
+            "Availability depends on the active runtime.";
+
+          element.classList.add("online");
+
+        } else {
+
+          element.textContent =
+            "Development mode — mock AI responses.";
+
+        }
+
+      } catch {
+
+        modelConfigured = false;
+
+        element.textContent =
+          "AI provider status unavailable.";
+
+        element.classList.add("error");
+
+      }
+    }
+
+    // ========================================================
+    // MULTILINGUAL N-ATLaS TUTOR
+    // ========================================================
+
+    document.getElementById(
+      "tutor-form"
+    ).addEventListener(
+      "submit",
+      async event => {
+
+        event.preventDefault();
+
+        const output =
+          document.getElementById(
+            "chat-response"
+          );
+
+        const meta =
+          document.getElementById(
+            "response-meta"
+          );
+
+        const askButton =
+          document.getElementById(
+            "ask-button"
+          );
+
+        const question =
+          document.getElementById(
+            "question"
+          ).value.trim();
+
+        const language =
+          document.getElementById(
+            "language"
+          ).value;
+
+        if (!question) return;
+
+        askButton.disabled = true;
+
+        askButton.textContent =
+          "Generating...";
+
+        output.textContent =
+          "Generating your cybersecurity explanation. " +
+          "Please wait...";
+
+        meta.textContent = "";
+
+        const prompt =
+          `Respond in ${language}. ` +
+          `Explain clearly for a Nigerian cybersecurity ` +
+          `beginner. ${question}`;
+
+        try {
+
+          const response = await fetch(
+            `${API}/tutor`,
+            {
+              method: "POST",
+
+              headers: {
+                "Content-Type":
+                  "application/json"
+              },
+
+              body: JSON.stringify({
+                question: prompt
+              })
+            }
+          );
+
+          if (!response.ok) {
+
+            const errorData =
+              await response.json();
+
+            throw new Error(
+              errorData.detail ||
+              "Tutor unavailable"
+            );
+          }
+
+          const data =
+            await response.json();
+
+          const isMock =
+            data.provider === "mock";
+
+          const source = isMock
+            ? "DEMO RESPONSE — Not N-ATLaS"
+            : "N-ATLaS — Live Colab inference";
+
+          output.textContent =
+            `[${source}]\n\n${data.answer}`;
+
+          if (!isMock) {
+
+            const metrics = [];
+
+            if (
+              typeof data.latency_ms ===
+              "number"
+            ) {
+
+              metrics.push(
+                `Total latency: ${
+                  (data.latency_ms / 1000)
+                    .toFixed(2)
+                } seconds`
+              );
+            }
+
+            if (
+              typeof data.inference_seconds ===
+              "number"
+            ) {
+
+              metrics.push(
+                `Model inference: ${
+                  data.inference_seconds
+                } seconds`
+              );
+            }
+
+            if (
+              typeof data.completion_tokens ===
+              "number"
+            ) {
+
+              metrics.push(
+                `Generated tokens: ${
+                  data.completion_tokens
+                }`
+              );
+            }
+
+            meta.textContent =
+              metrics.join(" | ");
+
+          }
+
+        } catch (error) {
+
+          output.textContent =
+            `Error: ${error.message}`;
+
+        } finally {
+
+          askButton.disabled = false;
+
+          askButton.textContent = "Ask";
+
+        }
+      }
+    );
+
+    // ========================================================
+    // INITIALISE APPLICATION
+    // ========================================================
+
+    updateProgress();
+
+    loadMissions();
+
+    updateModelStatus();
+
+  </script>
+
+</body>
+</html>

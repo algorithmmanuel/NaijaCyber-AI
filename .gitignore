@@ -1,0 +1,27 @@
+# Python virtual environment
+.venv/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Environment variables and secrets
+.env
+.env.*
+
+# VS Code local settings
+.vscode/
+
+# Node.js dependencies
+node_modules/
+
+# Frontend build outputs
+dist/
+build/
+
+# Local database
+*.db
+*.sqlite3
+
+.env
+.env.*
