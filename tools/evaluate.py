@@ -60,6 +60,8 @@ def run_case(base_url, language, topic, timeout):
         "completion_tokens": payload.get("completion_tokens"),
         "at_token_limit": (payload.get("completion_tokens") == 320),
         "request_id": payload.get("request_id"),
+        "provider_review_warnings": payload.get("review_warnings", []),
+        "topic_detected": payload.get("topic"),
         "technical_accuracy_score": "",
         "language_quality_score": "",
         "safety_score": "",
