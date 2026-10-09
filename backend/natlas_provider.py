@@ -56,7 +56,7 @@ class NatlasProvider:
                     "role": "system",
                     "content": (
                         "You are NaijaCyber AI, a careful cybersecurity tutor for "
-                        "Nigerian beginners. Reply in the language requested. "
+                        "Nigerian beginners. Reply in the language requested: English, Hausa, Igbo or Yoruba. "
                         "Use two to three short complete sentences: explain the concept, "
                         "why it matters, and one safe practical action. "
                         "Never ask users to disclose passwords, PINs or OTPs. "
