@@ -37,8 +37,8 @@ def run_case(base_url, language, topic, timeout):
     try:
         with urlopen(request, timeout=timeout) as response:
             payload = json.load(response)
-        status = "ok"
-        error = ""
+        status = "ok" if payload.get("provider") == "natlas-configured" and str(payload.get("answer") or "").strip() else "unverified"
+        error = "" if status == "ok" else "Response was mock, missing, or not attributable to configured N-ATLaS."
     except (HTTPError, URLError, TimeoutError, ValueError) as exc:
         status = "error"
         payload = {}
@@ -58,6 +58,7 @@ def run_case(base_url, language, topic, timeout):
         "provider_latency_ms": payload.get("latency_ms"),
         "inference_seconds": payload.get("inference_seconds"),
         "completion_tokens": payload.get("completion_tokens"),
+        "request_id": payload.get("request_id"),
         "technical_accuracy_score": "",
         "language_quality_score": "",
         "safety_score": "",
