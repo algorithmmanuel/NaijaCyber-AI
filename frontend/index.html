@@ -26,6 +26,10 @@
       padding: 22px 6%;
       background: #101b30;
       border-bottom: 1px solid #263854;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
     }
 
     .brand {
@@ -244,6 +248,9 @@
     <div class="brand">
       🛡️ Naija<span>Cyber AI</span>
     </div>
+    <form id="beta-logout" action="/beta/logout" method="post" hidden style="margin:0">
+      <button type="submit" title="End this beta session">Log out</button>
+    </form>
   </header>
 
   <main>
@@ -398,6 +405,21 @@
     // ========================================================
 
     const API = "";
+
+    // Show logout only for an authenticated beta session. Normal local
+    // development mode continues without a sign-in/logout requirement.
+    async function updateBetaLogout() {
+      try {
+        const response = await fetch("/beta/session", {cache: "no-store"});
+        if (!response.ok) return;
+        const data = await response.json();
+        document.getElementById("beta-logout").hidden =
+          !(data.beta_mode && data.authenticated);
+      } catch {
+        // The beta session endpoint is optional outside supervised tests.
+      }
+    }
+    updateBetaLogout();
 
     const STORAGE_KEY =
       "naijacyber-completed-v1";

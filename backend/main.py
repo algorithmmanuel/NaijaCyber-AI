@@ -25,6 +25,7 @@ load_dotenv(
 )
 
 from backend.natlas_provider import NatlasProvider, NatlasError
+from backend.beta_access import BetaAccessMiddleware
 
 natlas = NatlasProvider()
 
@@ -40,6 +41,8 @@ app = FastAPI(
     ),
     version="0.2.0"
 )
+
+app.add_middleware(BetaAccessMiddleware)
 
 # ------------------------------------------------------------
 # 3. CYBERSECURITY MISSIONS
