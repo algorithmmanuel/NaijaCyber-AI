@@ -28,3 +28,14 @@ Record reviewer identity separately and seek two independent reviewers for dispu
 
 ## Merge gate
 GitHub Actions runs offline regressions on every PR update. Verify a green check on the **latest commit**, verify the HTML dashboard against live evidence, obtain beta feedback, and review notebook/screenshots for secrets. Leave PR #1 open until these checks pass. The live model requires an independently running authenticated Colab endpoint; CI intentionally never uses its credentials.
+
+
+## Second-iteration evaluation (after prompt improvement)
+Keep the original local `docs/evidence/benchmark.json` and `.csv` unchanged as the baseline.
+1. Sync `feature/naic-developer-readiness` locally, then restart the FastAPI server to load the updated provider prompt.
+2. With the authenticated Colab inference endpoint running, execute `python tools/evaluate.py --out docs/evidence/benchmark_v2`. The script stops if the output files already exist; choose a fresh prefix to repeat an evaluation.
+3. Generate the new dashboard: `python tools/dashboard.py --input docs/evidence/benchmark_v2.json --output docs/evidence/dashboard_v2.html`.
+4. Compare: `python tools/compare_evaluations.py --baseline docs/evidence/benchmark.json --candidate docs/evidence/benchmark_v2.json`.
+5. Inspect all 12 responses, score factual correctness and safety, and request fluent-speaker review for Hausa, Igbo and Yoruba. Compare per-case quality and documented latency before deciding whether the new prompt is better.
+
+A completion-token count of 320 is a **possible** truncation indicator, not proof of truncation. The improvement targets are fewer incomplete/off-topic answers and fewer factual errors; they must be verified from the actual responses. The output budget remains 320 tokens to keep the comparison relatively controlled. Do not infer quality gains from API success rates alone.
