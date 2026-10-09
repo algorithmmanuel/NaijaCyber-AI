@@ -58,6 +58,7 @@ def run_case(base_url, language, topic, timeout):
         "provider_latency_ms": payload.get("latency_ms"),
         "inference_seconds": payload.get("inference_seconds"),
         "completion_tokens": payload.get("completion_tokens"),
+        "at_token_limit": (payload.get("completion_tokens") == 320),
         "request_id": payload.get("request_id"),
         "technical_accuracy_score": "",
         "language_quality_score": "",
@@ -69,7 +70,7 @@ def run_case(base_url, language, topic, timeout):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base-url", default="http://127.0.0.1:8000")
-    parser.add_argument("--out", default="docs/evidence/benchmark")
+    parser.add_argument("--out", default="docs/evidence/benchmark_v2")
     parser.add_argument("--timeout", type=float, default=150)
     args = parser.parse_args()
 
@@ -80,6 +81,8 @@ def main():
     ]
     prefix = Path(args.out)
     prefix.parent.mkdir(parents=True, exist_ok=True)
+    if prefix.with_suffix(".json").exists() or prefix.with_suffix(".csv").exists():
+        parser.error("Output exists. Choose a new --out prefix to preserve prior evidence.")
     prefix.with_suffix(".json").write_text(
         json.dumps(rows, ensure_ascii=False, indent=2), encoding="utf-8"
     )
