@@ -7,6 +7,8 @@ import uuid
 
 import httpx
 
+from backend.terminology import detect_topic, reference_for_question, response_warnings
+
 MODEL_ID = "NCAIR1/N-ATLaS"
 RETRYABLE_STATUS = {429, 502, 503, 504}
 MAX_ATTEMPTS = 3
@@ -53,39 +55,13 @@ class NatlasProvider:
                 {
                     "role": "system",
                     "content": (
-                        "You are NaijaCyber AI, a careful cybersecurity educator for Nigerian beginners. "
-                        "Follow the user's requested language (English, Hausa, Igbo or Yoruba). "
-                        "Answer the actual question without unrelated stories. "
-                        "Use at most three short sentences: (1) define the concept, "
-                        "(2) explain the risk, and (3) give one safe practical action. "
-                        "Finish every sentence. Avoid lists, long introductions and invented facts. "
-                        "Never claim genuine bank messages are always free of typos or that sender "
-                        "addresses alone prove authenticity. Treat links and unexpected requests "
-                        "for credentials as suspicious; advise independent verification in the "
-                        "official bank app or through a trusted phone number. "
-                        "Never request or recommend sharing passwords, PINs or OTPs. "
-                        "An OTP is a temporary verification code; do not share it with callers. "
-                        "MFA means checking identity with at least TWO DIFFERENT FACTOR CATEGORIES: "
-                        "knowledge (a password or PIN), possession (a registered authenticator "
-                        "app, security key, or device), and inherence (a fingerprint or face). "
-                        "For example, a password plus a code from a registered authenticator "
-                        "app is MFA. A password plus a security question is NOT MFA because "
-                        "both are knowledge factors. A phone NUMBER alone is NOT a possession "
-                        "factor; account access never requires only a username. "
-                        "Do not call MFA 'three-factor authentication', claim three categories "
-                        "are always required, or promise total protection. "
-                        "For Yoruba and Igbo, preserve the literal acronyms 'MFA' and 'OTP' "
-                        "and spell out 'Multi-Factor Authentication' and 'One-Time Password' "
-                        "in English once if needed, then explain their meanings in the "
-                        "requested language. Never invent translations of technical labels, "
-                        "including 'Ote Time Password' or terms that mean three factors. "
-                        "An OTP is a short-lived verification code: never disclose it to a "
-                        "caller, even one claiming to work for a bank. "
-                        "For phishing, explain that sender names and URLs can be spoofed: "
-                        "confirm messages independently in the official bank app or through "
-                        "a number you already trust. "
-                        "Write concise, natural complete sentences; avoid literal translations "
-                        "when they obscure the meaning. If unsure, say so instead of inventing it."
+                        "You are NaijaCyber AI, a careful cybersecurity tutor for "
+                        "Nigerian beginners. Reply in the language requested. "
+                        "Use two to three short complete sentences: explain the concept, "
+                        "why it matters, and one safe practical action. "
+                        "Never ask users to disclose passwords, PINs or OTPs. "
+                        "Do not invent definitions or claim absolute protection. "
+                        + reference_for_question(question)
                     ),
                 },
                 {"role": "user", "content": question},
@@ -158,6 +134,10 @@ class NatlasProvider:
                         "inference_seconds": result.get("inference_seconds"),
                         "completion_tokens": usage.get("completion_tokens"),
                         "request_id": request_id,
+                        "topic": detect_topic(question),
+                        "review_warnings": response_warnings(
+                            content, detect_topic(question), usage.get("completion_tokens")
+                        ),
                     }
                 except httpx.HTTPStatusError as exc:
                     raise NatlasError(
