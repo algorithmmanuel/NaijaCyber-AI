@@ -39,3 +39,17 @@ Keep the original local `docs/evidence/benchmark.json` and `.csv` unchanged as t
 5. Inspect all 12 responses, score factual correctness and safety, and request fluent-speaker review for Hausa, Igbo and Yoruba. Compare per-case quality and documented latency before deciding whether the new prompt is better.
 
 A completion-token count of 320 is a **possible** truncation indicator, not proof of truncation. The improvement targets are fewer incomplete/off-topic answers and fewer factual errors; they must be verified from the actual responses. The output budget remains 320 tokens to keep the comparison relatively controlled. Do not infer quality gains from API success rates alone.
+
+
+## Focused version 3 multilingual retest
+After updating the feature branch locally, restart FastAPI so the revised tutor system prompt takes effect. Keep Colab running. Retest **six** previously weak cases (Igbo and Yoruba, each covering phishing, OTP and MFA) rather than the full 12.
+
+```powershell
+python -m tools.evaluate_focused --base-url http://127.0.0.1:8000 --out docs/evidence/focused_v3
+python tools/dashboard.py --input docs/evidence/focused_v3.json --output docs/evidence/dashboard_focused_v3.html
+Start-Process "docs/evidence/dashboard_focused_v3.html"
+```
+
+The retest outputs JSON and CSV separately from v1/v2 and refuses to overwrite existing evidence. Each row includes `review_flags` and `requires_human_review`. Flags detect possible 320-token truncation, incomplete endings and **a limited set of English-text errors**. They cannot certify Igbo or Yoruba accuracy or fluency. In particular, translated conceptual mistakes can pass automated screening. Have fluent reviewers inspect every response, focusing on MFA's distinct knowledge/possession/inherence categories, safe OTP handling and phishing recognition. Check that the model never treats a phone number itself as a possession factor, a username as sufficient authentication or a security question as an independent factor when paired with a password.
+
+The new provider prompt preserves the English acronyms MFA and OTP as technical labels instead of inventing local equivalents. This is a prompt intervention, not a language validation claim. The live retest requires local authenticated Colab access and cannot be run by GitHub Actions.
