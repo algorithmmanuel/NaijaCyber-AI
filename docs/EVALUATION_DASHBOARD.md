@@ -20,10 +20,11 @@ Record reviewer identity separately and seek two independent reviewers for dispu
 - Validate configured model ID, response schema and nonblank text (already implemented).
 - Keep network timeouts and disable redirects (already implemented).
 - Do not silently switch to mock on provider errors (already implemented).
-- Redact upstream response bodies and credentials from errors and logs.
-- Add explicit retries **only** for transient 429/502/503/504 with bounded exponential backoff and a total time budget; do not retry 400/401/403.
-- Add request IDs, per-provider latency histograms and documented rate limits before public deployment.
+- Redact upstream response bodies and credentials from public errors (implemented).
+- Retry only transient 429/502/503/504 responses with bounded exponential backoff and a 120-second total budget (implemented); 400/401/403 fail fast.
+- Attach a per-inference request ID to successful responses and safe error messages (implemented).
+- Before public deployment, add per-provider latency histograms, server-side rate limiting, authentication/access controls, and deployment monitoring.
 - Treat `model_verified: false` as an honest limitation until independently attested provenance exists.
 
 ## Merge gate
-Run `python -m pytest -q`, verify the HTML dashboard, confirm live-vs-mock provenance, obtain beta feedback, and review notebook/screenshots for secrets. Leave PR #1 open until these checks pass.
+GitHub Actions runs offline regressions on every PR update. Verify a green check on the **latest commit**, verify the HTML dashboard against live evidence, obtain beta feedback, and review notebook/screenshots for secrets. Leave PR #1 open until these checks pass. The live model requires an independently running authenticated Colab endpoint; CI intentionally never uses its credentials.
