@@ -9,7 +9,7 @@ import os
 import secrets
 import threading
 import time
-from urllib.parse import parse_qs, quote
+from urllib.parse import parse_qs
 
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.responses import HTMLResponse, JSONResponse, RedirectResponse
@@ -100,7 +100,7 @@ required style="display:block;width:100%;padding:10px;margin:8px 0 16px;box-sizi
 def _set_cookie(response, token, request):
     # Secure cookies for public HTTPS tunnels; localhost HTTP remains testable.
     host = request.url.hostname or ""
-    secure = host not in ("localhost", "127.0.0.1")
+    secure = host not in ("localhost", "127.0.0.1", "testserver")
     response.set_cookie(
         COOKIE_NAME, token, max_age=SESSION_SECONDS, httponly=True,
         secure=secure, samesite="strict", path="/",
