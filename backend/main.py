@@ -21,7 +21,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 # Load environment variables before initialising AI provider.
 load_dotenv(
     dotenv_path=PROJECT_ROOT / ".env",
-    override=True
+    override=False
 )
 
 from backend.natlas_provider import NatlasProvider, NatlasError
