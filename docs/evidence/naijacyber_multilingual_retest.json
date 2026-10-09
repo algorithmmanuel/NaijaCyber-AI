@@ -1,0 +1,26 @@
+[
+  {
+    "language": "Hausa",
+    "response": "Phishing wani nau'in zamba ne da ke amfani da saƙonnin imel ko wasu hanyoyin sadarwa na zamantakewa don yaudara masu amfani su bayyana bayanan sirri kamar bayanan banki ko lambobin ID. Misali a Najeriya, bankuna suna yawan zama abubuwan da aka yi niyya ga hare-haren satar bayanai ta hanyar phishing, inda masu cin zarafi za su iya aiko muku da saƙon da ya nuna cewa daga bankinku ne kuma yana buƙatar inganta bayanan ku. Don kasancewa lafiya, koyaushe duba adiresoshin imel don tabbatar da an samo shi daga tushen gaskiya kuma kar a bayar da bayanan sirrinku ga kowa sai dai idan kun tabbata cikakke game da asalin mai neman.",
+    "tokens": 224,
+    "latency": 14.676345371000025,
+    "ended_with_eos": true,
+    "hit_limit": false
+  },
+  {
+    "language": "Igbo",
+    "response": "Phishing bụ aghụghọ nke ndị mmadụ na-anwa iji ozi nkeonwe ha dị ka akara kredit ma ọ bụ paswọọdụ banki wdg site n'ime ime email ụgha, ozi ederede, ma ọ bụ weebụsaịtị adịgboroja. Dịka ọmụmaatụ, onye scammer nwere ike izipu gị ozi-e nke yiri ka ọ si ụlọ akụ gị ma rịọ ka ị pịa njikọ iji \"kwenye\" nkọwa akaụntụ gị. Iji zere nke a, lelee adreesị URL nke webpages ị na-akwụ ụgwọ na ma jide n'aka na ozi-e ị nwetara si n'ebe ị ma ama.",
+    "tokens": 208,
+    "latency": 13.663411643000018,
+    "ended_with_eos": true,
+    "hit_limit": false
+  },
+  {
+    "language": "Yoruba",
+    "response": "Phishing jẹ irọ́ àbẹ̀wò ayélujára tí wọ́n fi ìfiranṣẹ́ èrò ayélujára tàbí ibi tí kò ní ìdánimọ̀ rí láti máa lù wọ́n létí ìmúrasílẹ̀ fún ìkópa nínú báńkì orílẹ̀-èdè Nàìjíríà kan, bí Banki Zenith, kí wọ́n sì gba alaye ìdánimọ̀ ara ẹni. Lati yago fun eyi, ṣe idaniloju pe o ṣayẹwo adirẹsi imeeli naa daradara ki o ma ṣe pese alaye ti ara ẹni si awọn oniwun tabi awọn iwe-iroyin ti ko beere.",
+    "tokens": 212,
+    "latency": 13.930381946999887,
+    "ended_with_eos": true,
+    "hit_limit": false
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "language": "English",
+    "model": "NCAIR1/N-ATLaS",
+    "prompt": "Explain phishing to a cybersecurity beginner in simple English. Use a Nigerian banking example. Keep your response under 120 words.",
+    "response": "Phishing is like when someone sends you an email that looks like it's from your bank, asking you to give them your secret details. But, it's actually a trick by bad people trying to steal your money! Real banks won't ask you for personal stuff via email. So, always be careful and check if the message is real before sharing any information.",
+    "tokens": 74,
+    "latency_seconds": 4.77,
+    "tokens_per_second": 15.51
+  },
+  {
+    "language": "Hausa",
+    "model": "NCAIR1/N-ATLaS",
+    "prompt": "Explain phishing to a cybersecurity beginner entirely in Hausa. Use a Nigerian banking example. Keep your response under 120 words.",
+    "response": "Phishing wani nau'in satar bayanan sirri ne ta hanyar yaudara da kuma yin amfani da zamba ta imel ko wasu kafofin sadarwa na zamani. Misali, bankunan Najeriya suna aika saƙonnin imel don tabbatar da bayananku, amma masu sata na iya yin kama da waɗannan. Idan ka danna mahaɗin da ba daidai ba, za su iya samun bayanan asusunka. Don guje wa wannan, duba adireshin imel don duk wani rashin daidaito kamar manyan haruffa ko rubutattun kalmomi kafin shiga. Ka kiyaye bayananka cik",
+    "tokens": 180,
+    "latency_seconds": 11.83,
+    "tokens_per_second": 15.21
+  },
+  {
+    "language": "Igbo",
+    "model": "NCAIR1/N-ATLaS",
+    "prompt": "Explain phishing to a cybersecurity beginner entirely in Igbo. Use a Nigerian banking example. Keep your response under 120 words.",
+    "response": "Ịfịkọta bụ ụdị aghụghọ cyber nke ndị ohi na-eji izu ohi ozi nkeonwe dịka nkọwa banki ma ọ bụ okwuntughe site na email adịgboroja. Na banki Naijiria, ihe atụ gụnyere email ụgha na-ekwu na akwụkwọ mgbasa ozi onye ahịa chọrọ imezu. E-mail a nwere njikọ na webụsaịtị adịgboroja yiri nke ezigbo banki. Mgbe mmadụ batara nkọwa ya, ndị ohi na-enweta ozi a. Ọ dị mkpa ka ndị ahịa lelee adreesị o",
+    "tokens": 180,
+    "latency_seconds": 11.94,
+    "tokens_per_second": 15.08
+  },
+  {
+    "language": "Yoruba",
+    "model": "NCAIR1/N-ATLaS",
+    "prompt": "Explain phishing to a cybersecurity beginner entirely in Yoruba. Use a Nigerian banking example. Keep your response under 120 words.",
+    "response": "Ìyàwó, ìfọ́jú máa ń ṣẹlẹ̀ nígbà tí ẹnì kan bá gbìyànjú láti gba ìdánimọ̀ rẹ tàbí owó rẹ látinú ìmọ̀lára àfojúsùn. Fun apẹẹrẹ, ti o ba gba imeeli lati banki Naijiria kan n sọ pe akọọlẹ rẹ wa ni ewu ati pe ki o pese alaye akọọlẹ rẹ, iyẹn jẹ ifọju. Maṣe fi awọn iwe aṣẹ silẹ ayafi ti o daju pe orisun naa jẹ otitọ, bi awọn onij",
+    "tokens": 180,
+    "latency_seconds": 11.92,
+    "tokens_per_second": 15.1
+  }
+]
