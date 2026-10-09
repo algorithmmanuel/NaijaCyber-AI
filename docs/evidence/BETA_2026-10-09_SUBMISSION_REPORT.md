@@ -63,6 +63,7 @@ No formal numeric ratings were collected. These are participant impressions rath
 | B-05 | Earlier V4 synthetic evaluations found MFA factor errors | Technical misinformation risk | Disclose; human verification required for critical guidance |
 | B-06 | Tester 2 full mission completion and post-refresh persistence unverified | Coverage limitation | Mark unverified, not passed |
 | B-07 | Model and public-access services are temporary | Availability and operational limitations | Supervised demo only; not production hosting |
+| B-08 | BT-02 identified a missing logout mechanism under browser-cached Basic authentication | Users could not reliably end their browser session | **Implemented after feedback:** dedicated beta login page, revocable server-side sessions and logout button; offline CI regression tests included. Browser acceptance check pending |
 
 ## Quality assurance and development history
 
@@ -86,10 +87,16 @@ The repository contains separate versioned evaluation scripts and evidence for t
 - [x] Two distinct external-user screenshot sets supplied.
 - [x] Two verbatim qualitative language feedback statements captured.
 - [x] Functional evidence and limitations summarized conservatively.
-- [ ] Confirm participants consent to including redacted screenshots in the submission.
+- [x] Participants consented to including their answers and screenshots in the submission (reported by project owner on 9 October 2026).
 - [ ] Remove browser identifiers, login details and secrets from public evidence.
 - [ ] Check the competition's specific eligibility, repository, demonstration, date and licensing requirements against its official published rules.
 - [ ] Ensure any submission links point to accessible, permitted materials (private GitHub PRs are not viewable by public judges without granted access).
 - [ ] Decide whether a short recorded demo or static screenshot bundle is required when temporary inference hosting is offline.
 
 **Engineering decision:** No source-code rewrite is needed to submit this as a prototype with candid limitations. Keep the beta findings on PR #1; merging or production deployment is a separate decision.
+
+## Post-beta feedback resolution — sign-out (9 October 2026)
+
+BT-02 also identified a practical usability/security issue: the original protected beta only allowed sign-in, because browser-managed HTTP Basic authentication provides no reliable application logout. The implementation was updated *after* the recorded participant testing to support a dedicated sign-in page and explicit logout. Session tokens are random, process-local, short-lived (four hours), issued via HttpOnly/SameSite cookies and deleted on server-side logout. This change is **engineering follow-up evidence, not a claim that the original two beta sessions already tested it**. Before declaring this fix accepted by end users, manually sign in, log out, try the browser Back button and access a protected URL again. No changes to the N-ATLaS model or core mission/tutor logic were needed.
+
+The project owner confirmed both participants consent to the inclusion of their answers and screenshots. Screenshots must still be reviewed and redacted before publication; originals remain private until that check is complete.
