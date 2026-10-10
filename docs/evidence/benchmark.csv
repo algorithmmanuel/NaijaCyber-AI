@@ -1,0 +1,125 @@
+﻿timestamp_utc,language,topic,prompt,status,error,provider,model,response,total_latency_seconds,provider_latency_ms,inference_seconds,completion_tokens,technical_accuracy_score,language_quality_score,safety_score,reviewer_notes
+2026-10-09T11:23:11.485893+00:00,English,phishing,"Respond entirely in English. Use simple language for a Nigerian cybersecurity beginner. Give a practical, safe explanation. Explain how a banking customer should recognise a suspicious account-verification message.",ok,,natlas-configured,NCAIR1/N-ATLaS,"Sure! Let's talk about recognizing a suspicious account verification message from your bank.
+
+Imagine you're checking your bank balance on your phone or computer, and suddenly, you see a message asking you to verify some information. This is called ""account verification"" or ""2FA"" (which means Two-Factor Authentication).
+
+Here’s what you need to do:
+
+1. **Look at the sender:** Check if the email or message comes from your bank's official email address or phone number. For example, if your bank is ""XYZ Bank,"" look for ""@xyzbank.com"" in the email address. Don't trust messages with strange email addresses like ""@abcbank.com.""
+
+2. **Check the spelling and grammar:** Banks never make mistakes in emails or messages. If the message has typos (wrong words) or looks weird, it might be fake. A real bank will always send proper messages.
+
+3. **Don’t click on any links:** If the message asks you to click on a link to verify your account, don't do it. Those links can take you to dangerous websites that could steal your personal info. Instead, go directly to your bank's app or website and log in as usual.
+
+4. **Contact your bank directly:** If you’re unsure, call your bank's customer care number (you can find it on their official website or app) and ask if they sent the message. They'll help you know if it's real or not.
+
+Remember, it's always better to be safe than sorry when dealing with your money stuff. If something seems off, just ignore the",22.505,22469.9,20.94,320,,,,
+2026-10-09T11:23:25.127921+00:00,English,otp,"Respond entirely in English. Use simple language for a Nigerian cybersecurity beginner. Give a practical, safe explanation. Explain why a banking customer must not disclose a one-time password to a caller.",ok,,natlas-configured,NCAIR1/N-ATLaS,"Sure! Let's break it down simply:
+
+Imagine you're at your bank's counter, and someone calls you asking for your money details. They want your ""one-time password"" (a special code used once for a transaction) so they can do something with your money.
+
+**Why You Shouldn't Tell Them Your One-Time Password:**
+
+1. **Secret Code:** A one-time password is like a secret code only you and the bank know. It’s meant to keep your money safe.
+   
+2. **Safe and Secure:** If you tell anyone this code, they might use it to take your money without your permission. 
+
+3. **Banking Rules:** Banks say never to share your one-time password with anyone. If you do, you could lose your money and the bank may stop your account.
+
+So, always remember: keep your one-time password private to protect your money. Just like how you guard your toys from your friends, keep that secret code safe from strangers!",13.642,13615.22,12.88,200,,,,
+2026-10-09T11:23:46.744426+00:00,English,mfa,"Respond entirely in English. Use simple language for a Nigerian cybersecurity beginner. Give a practical, safe explanation. Explain multi-factor authentication and why it protects online accounts.",ok,,natlas-configured,NCAIR1/N-ATLaS,"Sure! Let's talk about multi-factor authentication (MFA) in simple terms.
+
+---
+
+**Multi-Factor Authentication Explained**
+
+Imagine you have a locker with a combination lock. Just knowing the code isn't enough to open it; you also need the key and maybe a special button. This is similar to what MFA does for your online accounts.
+
+**Why Do We Need MFA?**
+
+1. **Extra Security**: Using just one thing like a password can be unsafe because people might guess or steal it. With MFA, even if someone knows your password, they still need another secret piece of information that only you know, making it much harder for them to access your account.
+
+2. **Protection from Hackers**: Hackers often try to use stolen passwords to get into accounts. But with MFA, they would also need the second factor, which is usually something only you possess, like a phone or a specific token, making it very difficult for them to succeed.
+
+---
+
+**How Does It Work?**
+
+1. **First Factor - Password**: You enter your username and password to log in.
+2. **Second Factor - Something You Have**: This could be a code sent to your phone, an authenticator app, or a physical token. You must enter this code too before logging in.
+3. **Third Factor - Something You Know**: Sometimes, you may need to answer a security question or provide additional information known only to you.
+
+---
+
+**Example:**
+
+Let’s say you’re signing into your bank account:
+
+1. You type in your username and password.
+2",21.616,21589.43,20.86,320,,,,
+2026-10-09T11:24:07.931565+00:00,Hausa,phishing,"Respond entirely in Hausa. Use simple language for a Nigerian cybersecurity beginner. Give a practical, safe explanation. Explain how a banking customer should recognise a suspicious account-verification message.",ok,,natlas-configured,NCAIR1/N-ATLaS,"Don Allah, ku tabbata cewa asusun bankin ku yana da tsaro kuma ba ku bayyana duk wani bayanin sirri ga wasu mutane ko masu yuwuwar barazana ba.
+
+Wannan saboda akwai mutane da za su iya kokarin satar bayanan ku na banki don su yi amfani da kudaden ku ba tare da izinin ku ba. Don haka koyaushe duba idan saƙon ya fito daga bankin ku kuma ya haɗa da bayanan ku na musamman, kamar lambar takardar shaidarku ta banki (katin ATM) ko lambar wayar ku.
+
+Misali, idan kun karɓi saƙo mai zuwa:
+
+""Ku tabbata cewa asusunku yana da tsaro kuma ba ku bayyana duk wani bayanin sirri ga wasu mutane ko masu yiwuwa ba.""
+
+To, wannan zai iya zama saƙon bogi ne daga wanda ke ƙoƙarin samun damar shiga asusun bankinku. Kada ka yi watsi da shi kuma ka sanar da bankinka nan take game da shakku.
+
+Ka tuna koyaushe ka kasance mai hankali kuma ka kiyaye bayanan bankinka a sirrance. Id",21.187,21169.81,20.44,320,,,,
+2026-10-09T11:24:29.853752+00:00,Hausa,otp,"Respond entirely in Hausa. Use simple language for a Nigerian cybersecurity beginner. Give a practical, safe explanation. Explain why a banking customer must not disclose a one-time password to a caller.",ok,,natlas-configured,NCAIR1/N-ATLaS,"Lafiya! Mu yi magana game da wani abu mai sauki.
+
+Ka yi tunanin kana yin wasa tare da abokinka ka zama banki. Kuna son ba wa abokin ku wasu kudade don su ci gaba da wasan. Amma, dole ne ku tabbatar cewa abokinku ya san yadda za su karɓi kudadensu lafiya.
+
+Akwai nau'i biyu na kudi da za ka iya bawa abokinka:
+
+1. **Kudi Mai Girma**: Wannan shine adadin kuɗi da aka ce (misali, 100 naira). Duk lokacin da ka ba abokinka wannan adadin, suna samun ƙarin kudi iri ɗaya. Yanzu, idan wani ya kira ka yana tambayar lambar katin kuɗin ku, ba za ka so ka gaya musu girman wannan babban kudin ba saboda ba haka ba ne ke tantance ko katin kuɗin ku yana da tsaro.
+
+2. **Kati Daya**: Wannan kamar lambobi na musamman akan katunan kuɗi. Kowace katin kudi tana da nata lambobin daya-daya, kuma duk lokacin da ka ba abokinka katin kudi, suna samun katin kudi d",21.922,21899.23,21.02,320,,,,
+2026-10-09T11:24:51.926582+00:00,Hausa,mfa,"Respond entirely in Hausa. Use simple language for a Nigerian cybersecurity beginner. Give a practical, safe explanation. Explain multi-factor authentication and why it protects online accounts.",ok,,natlas-configured,NCAIR1/N-ATLaS,"Hakika! Ka yi la'akari da wannan:
+
+Ka yi tunanin kana da akwatin tsaro na musamman don adana kayanka masu daraja. Wannan akwatin yana buƙatar maɓalli guda biyu don bude shi yadda ya kamata: maɓallinka na farko (kamar kalmar sirri) da na biyu (kamar lambar ta musamman da ka karɓa akan wayarka).
+
+Wannan shine ra'ayin Multi-Factor Authentication (MFA). Shi ne amfani da abubuwa guda biyu ko fiye daga cikinsu don tabbatar da mutum mai amfani lokacin da suke kokarin shiga asusun kan layi.
+
+Yaya MFA ke karewa?
+
+1. **Kare Kankara**: Ko da wani ya san kalmar sirrinka, ba za su iya shiga asusunka ba tare da lambarka ta musamman ba.
+2. **Kare Kankara**: Idan wani ya sami lambarka ta musamman, har yanzu ba za su iya shiga ba tare da sun sani da kalmarka ba.
+
+Don haka, koyaushe ana amfani da MFA don kiyaye asusu mafi aminci, kamar banki ko imel ɗinku, don haka id",22.073,22046.37,21.21,320,,,,
+2026-10-09T11:25:14.008942+00:00,Igbo,phishing,"Respond entirely in Igbo. Use simple language for a Nigerian cybersecurity beginner. Give a practical, safe explanation. Explain how a banking customer should recognise a suspicious account-verification message.",ok,,natlas-configured,NCAIR1/N-ATLaS,"N'ime ndụ anyị kwa ọjọ, e nwere ike ịnwe ozi gbasara akaụntụ banki na-adịghị mma ma ọ bụrụ na ha chọrọ ka ị nyochaa akaụntụ gị. Ozi dị otú ahụ ga-abụ ihe na-ezighị ezi ma ọ bụrụ na onye na-agwa gị ka ị nye ozi nkeonwe gị dịka nọmba akwụkwọ ikike njem (ID) ma ọ bụ nọmba ekwentị gị.
+
+Ka anyị were ihe atụ: Ị nwetala ozi site na ụlọ ọrụ banki gị na-ekwu, ""Ndewo! Anyị chọrọ ijide n'aka na akaụntụ gị dị mma. Biko ziga anyị ID gị maka nkwenye."" Ihe omume a abụghị ihe kwesịrị ntụkwasị obi n'ihi na ụlọ ọrụ banki kwesịrị ịmara onye nwere akaụntụ ahụ ma anaghị agwa ya ka o zipu ozi dị mkpa dị ka ID.
+
+Iji chebe onwe gị pụọ n'ihe ọjọọ, mara ihe nd",22.082,22066.7,21.33,320,,,,
+2026-10-09T11:25:36.809861+00:00,Igbo,otp,"Respond entirely in Igbo. Use simple language for a Nigerian cybersecurity beginner. Give a practical, safe explanation. Explain why a banking customer must not disclose a one-time password to a caller.",ok,,natlas-configured,NCAIR1/N-ATLaS,"N'ime oge nke a na-ekwu maka cybersecurity, karịsịa mgbe anyi na-abia n'ihe gbasara akụ banki, ekwela ka onye ọ bụla mara otu-time passcode (OTP). Ọ bụrụ na mmadụ kpọọ gị wee jụọ passcode gị, agaghị akpọ ya. 
+
+Dịka ọmụmaatụ, were ya na ị na-enyocha azụmahịa banki gị ma nweta OTP na ekwentị gị. Onye na-agba ọsọ nwere ike ikwu na ha nọ n’ọnụ ụzọ ámá ma chọọ ịma paswọọdụ ahụ iji nyochaa azụmahịa ahụ. Ma ị gaghị enwe obi ụtọ ikwe ka onye a mara paswọọdụ gị.
+
+Ihe kpatara ya bụ na OTP dị nnọọ mfe ịchọta site n'aka ndị ọjọọ. Ha nwere ike ijikwa ekwentị gị site na nkwarụ ma ọ bụrụ na ị nye ha OTP gị. Mgbe ha nwetachara nke ahụ, ha nwere ike ime ihe ọjọọ na akaụntụ ụlọ akụ gị, dị ka",22.801,22777.06,20.86,320,,,,
+2026-10-09T11:25:59.203969+00:00,Igbo,mfa,"Respond entirely in Igbo. Use simple language for a Nigerian cybersecurity beginner. Give a practical, safe explanation. Explain multi-factor authentication and why it protects online accounts.",ok,,natlas-configured,NCAIR1/N-ATLaS,"N'ime nchekwa cyber, multi-factor authentication (MFA) bụ usoro iji chebe akaụntụ n'ịntanetị site n'ịchọ ọtụtụ ihe iji kwado njirimara onye ọrụ. Ọnụnọ nke ihe atọ a na-eme ka o sie ike maka ndị omempụ imebi akaụntụ ahụ.
+
+1. Ihe mbụ bụ ihe mgbagwoju anya - dịka okwuntughe ma ọ bụ azịza ajụjụ nzuzo.
+2. Ihe nke abụọ bụ ngwaọrụ anụ ahụ - dịka ekwentị mkpanaaka ma ọ bụ kọmputa nke onye ọrụ ji mara.
+3. Ihe ikpeazụ bụ ihe nkwenye - dịka ntinye aka onye ọrụ ma ọ bụ paswọọdụ ọzọ.
+
+Site n'iji MFA, ị na-echebe akaụntụ gị pụọ na mwakpo sitere na ndị mmadụ na-enweghị ike ịnweta ihe niile achọrọ iji nweta ohere. Dịka ọmụmaatụ, ọbụlagodi na onye na-egbu egbu enweelarị okwunt",22.394,22379.73,21.61,320,,,,
+2026-10-09T11:26:21.425274+00:00,Yoruba,phishing,"Respond entirely in Yoruba. Use simple language for a Nigerian cybersecurity beginner. Give a practical, safe explanation. Explain how a banking customer should recognise a suspicious account-verification message.",ok,,natlas-configured,NCAIR1/N-ATLaS,"Dájúdájú! Jẹ́ ká sọ pé o n gba ìfiranṣẹ́ kan láti ilé-ifowopamọ́ tí ó dà bíi èyí:
+
+""Kaabo onibara! A ti fìdí rẹ̀ múlẹ̀ pé àkópọ̀ rẹ̀ ní 25% ìdánilójú. Tẹ línkì yìí láti jẹ́rè ìdánilójú rẹ: http://www.examplebank.com/verify""
+
+Báyìí, ẹ jẹ́ ká wo bó ṣe le mọ̀ bóyá ìfiranṣẹ́ náà wúlò tàbí bẹ́ẹ̀ kọ́.
+
+1. **Ṣayẹwo Orisun**: Rii daju pe imeeli naa wa lati adirẹsi ile-ifowopamọ rẹ gangan (fun apẹẹrẹ, [email protected]](mailto:[email protected]])). Àwọn arúfin olùgbékalẹ̀ máa ń lo àdírẹ́sì ayélujára aláìlẹ́mìí tí ó dá bíi pé ó jẹ́ òtítọ́.
+
+2. **Wo fun Spelling and Grammar Mistakes**: Gbogbo ifiranṣẹ ofin lati banki r",22.221,22218.68,21.38,320,,,,
+2026-10-09T11:26:43.083593+00:00,Yoruba,otp,"Respond entirely in Yoruba. Use simple language for a Nigerian cybersecurity beginner. Give a practical, safe explanation. Explain why a banking customer must not disclose a one-time password to a caller.",ok,,natlas-configured,NCAIR1/N-ATLaS,"Bawo ni! Mo jẹ́ olùkọ́ ààbò kọ̀mputa fún àwọn tó bẹ̀rẹ̀ sí í mọ̀ nípa ààbò ìdáná Nàìjíríà. Jẹ ki n ṣe alaye fun o ni irọrun idi ti ko yẹ ki onibara banki pin iwe-ẹri akoko kan (OTP) pẹlu olumulo.
+
+Ṣe o rii, OTP jẹ nọmba pataki kan ti banki naa fi ranṣẹ si awọn alabara wọn nipasẹ imeeli tabi SMS lati jẹrisi idunadura kan lori ayelujara. O dabi koodu ikọkọ ti o jẹ ki o mọ pe ibaraenisepo rẹ pẹlu ile-ifowopamọ jẹ ailewu ati igbẹkẹle.
+
+Ti o ba pin OTP rẹ pẹlu ẹnikan ti o gba ipe foonu, wọn le lo o lati wọle si akọọlụ banki rẹ laisi aṣẹ rẹ. Eyi ni a npe ni ""phishing,"" eyiti o jẹ bi fifun awọn adigunjale ni bọtini lati wọle si awọn ohun-ini ifura rẹ.
+
+Fojuinu pe OTP",21.658,21641.02,20.75,320,,,,
+2026-10-09T11:27:02.724169+00:00,Yoruba,mfa,"Respond entirely in Yoruba. Use simple language for a Nigerian cybersecurity beginner. Give a practical, safe explanation. Explain multi-factor authentication and why it protects online accounts.",ok,,natlas-configured,NCAIR1/N-ATLaS,"Ìmúdàgba ìfọwọ́si mẹta jẹ́ ọ̀nà kan láti dáàbò bo àkọọlẹ̀ lórí Íńtánẹ́ẹ̀tì nípa fífi ọ̀pọ̀lọpọ̀ ìgbésẹ̀ tí ó yẹ kí ènìyàn ṣe kó tó lè wọlé síi. Àwọn ìgbésẹ̀ wọ̀nyí sábà máa ń ní ohun kan tí ó jẹ́ ti ara (bíi kaadi ID), nkan tí ó jẹ́ ti ọrọ̀ (bíi ọrọ aṣinṣe), àti nkan tí ó jẹ́ ti ohun-ini (bíi foonu alagbeka). Iru iṣeduro yii ni o daabobo awọn akọọlẹ lati iraye si laigba aṣẹ nipasẹ awọn eniyan ti ko mọ tabi awọn bot irira, bi ẹnikan ba mọ gbogbo awọn eroja mẹta naa, o ṣoro pupọ fun wọn lati wọle si akọọlẹ naa.",19.64,19621.0,18.9,289,,,,

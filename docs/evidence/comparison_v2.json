@@ -1,0 +1,18 @@
+{
+  "baseline": {
+    "cases": 12,
+    "live_successes": 12,
+    "median_latency_seconds": 21.998,
+    "possible_token_limit_hits": 10,
+    "human_reviewed": 0
+  },
+  "candidate": {
+    "cases": 12,
+    "live_successes": 12,
+    "median_latency_seconds": 14.043,
+    "possible_token_limit_hits": 1,
+    "human_reviewed": 0
+  },
+  "same_case_keys": true,
+  "warning": "API success and token counts do not establish factual or language quality. Conduct human reviews."
+}
