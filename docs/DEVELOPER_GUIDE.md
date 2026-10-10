@@ -21,6 +21,7 @@ matching bearer key. Keep it local. To use development-only mock mode, leave
 ```
 
 - `http://127.0.0.1:8000/app/` — learner interface
+- `http://127.0.0.1:8000/app/developer.html` — multilingual developer playground (beta access applies)
 - `http://127.0.0.1:8000/docs` — FastAPI interactive reference
 - `GET /ai/status` — configured provider, **not** a live remote health check
 - `POST /tutor` — JSON body `{"question":"Explain phishing in Hausa"}`
@@ -57,3 +58,8 @@ Innovation and Digital Economy, and check its use restrictions.
 
 The currently committed model identifier alone is not independent
 cryptographic proof of deployed model identity.
+
+## Developer playground evidence (four manual runs)
+The browser playground calls the existing `POST /tutor` endpoint; it does not host or independently identify the model. It records the selected language, question, constructed request, API response, client round-trip latency and provider metadata. Click **Export JSON** after a successful request. Four original exports are versioned in `docs/evidence/inference/`, with a factual summary in `docs/evidence/DEVELOPER_PLAYGROUND_VALIDATION.md`.
+
+These four runs used different prompts across languages, so their latency measurements are **not a controlled cross-language performance comparison**. Two outputs carry truncation warnings. All four report `model_verified: false`; do not claim independently verified model identity or native-speaker-reviewed linguistic accuracy. Do not interpret this developer-run evidence as a substitute for the competition's separate real-user validation requirement.
