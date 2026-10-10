@@ -25,7 +25,7 @@ NaijaCyber AI is a prototype cybersecurity learning platform that combines inter
 ## Project Structure
 
 - `backend/` — FastAPI application and N-ATLaS integration adapter
-- `frontend/` — Interactive learner interface
+- `frontend/` — Interactive learner interface and developer playground
 - `notebooks/` — N-ATLaS inference and evaluation experiments
 - `docs/evidence/` — Model evaluation results and demonstration evidence
 - `tests/` — Automated testing resources
@@ -41,7 +41,7 @@ NaijaCyber AI is a prototype cybersecurity learning platform that combines inter
 python -m uvicorn backend.main:app --reload
 ```
 
-5. Open `http://127.0.0.1:8000/app/`.
+5. Open `http://127.0.0.1:8000/app/` for the learner interface or `http://127.0.0.1:8000/app/developer.html` for the Developer Dashboard (beta authentication applies).
 
 The tutor runs in mock mode when no model endpoint is configured. Real N-ATLaS inference requires a separately hosted model endpoint.
 
@@ -64,3 +64,6 @@ National AI Innovation Challenge 2026 — Developer Infrastructure category.
 ## Security Notice
 
 Do not commit credentials, access tokens, `.env` files, personal banking data or other confidential information to this repository.
+## Developer Playground and NAIC Evidence
+
+The Developer Dashboard sends multilingual cybersecurity prompts through the existing FastAPI tutor API and shows provider metadata, latency, token usage and raw JSON. It can export the response for evidence. Four manual language examples and their limitations are documented in [Developer Playground Validation](docs/evidence/DEVELOPER_PLAYGROUND_VALIDATION.md), with the original exports under [`docs/evidence/inference/`](docs/evidence/inference/). The API's configured model name is not independent verification of model identity. Two examples include possible truncation warnings; native-speaker review and separate beta-user validation remain necessary.
