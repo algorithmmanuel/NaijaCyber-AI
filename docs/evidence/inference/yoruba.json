@@ -1,0 +1,21 @@
+{
+  "language": "Yoruba",
+  "question": "Explain phishing and one way to stay safe.",
+  "request": "Respond in Yoruba. Explain clearly for a Nigerian cybersecurity beginner. Explain phishing and one way to stay safe.",
+  "response": {
+    "answer": "Ìfihàn ni ìjábọ́ tí ó ní í ṣe pẹ̀lú fífi àwọn ènìyàn lè mọ̀ pé wọ́n ń gbìmọ̀ láti gba ìmọ̀ ìdánimọ̀ rẹ tàbí kó o jẹ́ kí wọ́n máa bá ọ sọ̀rọ̀. Àpẹẹrẹ kan ti iru ìkọ̀sílẹ̀ bẹ́ẹ̀ ni ìfiranṣẹ́ àfojúsùn tí ó dabi ẹnipe láti ilé iṣẹ́ tí o nífẹ̀ẹ́ sí, tí ó sì ń béèrè fún alaye ìbánisọ̀rọ̀ rẹ.\n\nLati daabobo ara re, ma lo fi awon oto (ID) tabi odun (PIN) ranse si enikeni ayafi ti o ba ni idaniloju pe won je olubasọrọ tooto ati igbẹkẹle. O le ṣayẹwo otitọ ti ibaraenisepo naa nipa lilọ si oju opo wẹẹbu osise nipasẹ adirẹsi URL ti o han gbangba ko ṣiṣẹda eyikeyi awọn ọna asopọ ti o wa nin",
+    "provider": "natlas-configured",
+    "model": "NCAIR1/N-ATLaS",
+    "latency_ms": 28372.6,
+    "model_verified": false,
+    "inference_seconds": 20.7,
+    "completion_tokens": 320,
+    "request_id": "ff524514de664507b4f37161e69a69aa",
+    "topic": "phishing",
+    "review_warnings": [
+      "possible_token_limit",
+      "possibly_incomplete_ending"
+    ]
+  },
+  "client_round_trip_ms": 28405
+}
