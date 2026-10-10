@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Developer Playground | NaijaCyber AI</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#080f1e;color:#e8eef8;font:15px/1.55 "Segoe UI",Arial,sans-serif}header{background:#101b30;border-bottom:1px solid #263854;padding:18px max(20px,6%);display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;align-items:center}a{color:#38dfbd}main{max-width:1100px;margin:auto;padding:30px 20px}.muted{color:#aab9cf}.panel{background:#121f34;border:1px solid #2a3b54;border-radius:14px;padding:22px;margin:18px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px}label{display:block;font-weight:600;margin:12px 0 6px}textarea,select,input{width:100%;background:#091426;color:#e8eef8;border:1px solid #455875;border-radius:8px;padding:12px;font:inherit}textarea{min-height:140px;resize:vertical}button{background:#38dfbd;color:#071c1a;border:0;border-radius:8px;padding:12px 18px;font-weight:700;cursor:pointer}button:disabled{opacity:.55;cursor:wait}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:15px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#091426;padding:16px;border-radius:8px;max-height:420px;overflow:auto}.stat{font-size:22px;font-weight:700}.badge{color:#38dfbd}.warning{color:#ffcb7b}.error{color:#ffb4b4}h1{margin-bottom:0}h2{margin-top:0}small{color:#aab9cf}nav{display:flex;gap:16px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<header><strong>🛡️ NaijaCyber AI · Developer Playground</strong><nav><a href="/app/">Learner interface</a><a href="/docs" target="_blank" rel="noopener">Swagger API docs ↗</a><a href="/openapi.json" target="_blank" rel="noopener">OpenAPI schema ↗</a></nav></header>
+<main>
+<h1>Developer Dashboard</h1>
+<p class="muted">Test the existing N-ATLaS-backed cybersecurity tutor API. Live model inference requires a configured, reachable endpoint; mock results are explicitly marked.</p>
+<section class="panel"><h2>Provider status</h2><div id="status" role="status" aria-live="polite">Checking API status…</div><div class="actions"><button id="refresh" type="button">Refresh status</button></div><small>Configuration does not independently verify the remote model identity or runtime availability.</small></section>
+<section class="panel"><h2>Multilingual prompt playground</h2>
+<form id="playground">
+<div class="grid"><div><label for="language">Response language</label><select id="language"><option>English</option><option>Hausa</option><option>Igbo</option><option>Yoruba</option></select></div><div><label for="example">Example prompt</label><select id="example"><option value="">Custom prompt</option><option value="Explain phishing and one way to stay safe.">Phishing</option><option value="Explain why multi-factor authentication matters.">MFA</option><option value="Explain how to create a strong password.">Passwords</option></select></div></div>
+<label for="prompt">Cybersecurity question</label><textarea id="prompt" maxlength="1800" required placeholder="Ask a cybersecurity question…"></textarea>
+<div class="actions"><button id="run" type="submit">Run inference</button><button id="clear" type="button">Clear</button><button id="export" type="button" disabled>Export JSON</button></div></form>
+<p id="feedback" role="status" aria-live="polite" class="muted"></p></section>
+<section class="grid" aria-label="Inference metrics">
+<div class="panel"><small>Response source</small><div id="source" class="stat">—</div></div>
+<div class="panel"><small>Round-trip latency</small><div id="latency" class="stat">—</div></div>
+<div class="panel"><small>Generated tokens</small><div id="tokens" class="stat">—</div></div>
+<div class="panel"><small>Request ID</small><div id="request-id" style="overflow-wrap:anywhere">—</div></div>
+</section>
+<section class="panel"><h2>Model response</h2><pre id="answer" aria-live="polite">Submit a question to see the response.</pre></section>
+<section class="panel"><h2>Raw API response</h2><pre id="raw">No request yet.</pre><p class="muted">Endpoint: <code>POST /tutor</code>. Request body: <code>{"question":"…"}</code>. See <a href="/docs" target="_blank" rel="noopener">interactive API documentation</a> for all routes.</p></section>
+</main>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+let lastResult=null;
+async function checkStatus(){
+ $("status").textContent="Checking API status…";
+ try{
+  const response=await fetch("/ai/status",{cache:"no-store"});
+  if(!response.ok)throw Error("HTTP "+response.status);
+  const data=await response.json();
+  $("status").textContent=(data.endpoint_configured?"N-ATLaS endpoint configured (availability not guaranteed)":"Development mode: mock provider")+" · Model: "+(data.configured_model||"not specified")+" · Verified: "+(data.model_verified?"yes":"no");
+  $("status").className=data.endpoint_configured?"badge":"warning";
+ }catch(err){$("status").textContent="Could not retrieve status: "+err.message;$("status").className="error";}
+}
+$("refresh").addEventListener("click",checkStatus);
+$("example").addEventListener("change",()=>{if($("example").value)$("prompt").value=$("example").value;});
+$("clear").addEventListener("click",()=>{$("prompt").value="";$("answer").textContent="Submit a question to see the response.";$("raw").textContent="No request yet.";$("feedback").textContent="";["source","latency","tokens","request-id"].forEach(id=>$(id).textContent="—");lastResult=null;$("export").disabled=true;});
+$("playground").addEventListener("submit",async event=>{
+ event.preventDefault();const question=$("prompt").value.trim();if(!question)return;
+ const language=$("language").value;
+ const fullPrompt="Respond in "+language+". Explain clearly for a Nigerian cybersecurity beginner. "+question;
+ $("run").disabled=true;$("run").textContent="Running…";$("feedback").textContent="Waiting for API response…";$("answer").textContent="Generating…";$("raw").textContent="Waiting…";lastResult=null;$("export").disabled=true;
+ const start=performance.now();
+ try{
+  const response=await fetch("/tutor",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({question:fullPrompt})});
+  const elapsed=performance.now()-start;
+  const data=await response.json();
+  if(!response.ok)throw Error(typeof data.detail==="string"?data.detail:"API returned HTTP "+response.status);
+  const mock=data.provider==="mock";
+  $("source").textContent=mock?"MOCK":data.provider||"Unknown";
+  $("source").className=mock?"stat warning":"stat badge";
+  $("latency").textContent=(typeof data.latency_ms==="number"?data.latency_ms:elapsed).toFixed(0)+" ms";
+  $("tokens").textContent=typeof data.completion_tokens==="number"?String(data.completion_tokens):"Not provided";
+  $("request-id").textContent=data.request_id||"Not provided";
+  $("answer").textContent=(mock?"[DEMO RESPONSE — NOT N-ATLaS]\n\n":"[API RESPONSE — MODEL NOT INDEPENDENTLY VERIFIED]\n\n")+(data.answer||"No answer returned");
+  $("raw").textContent=JSON.stringify(data,null,2);
+  $("feedback").textContent=mock?"Mock response: live N-ATLaS inference was not used.":"API request completed; check response metadata for provenance.";
+  lastResult={language,question,request:fullPrompt,response:data,client_round_trip_ms:Math.round(elapsed)};
+  $("export").disabled=false;
+ }catch(err){$("feedback").textContent="Request failed: "+err.message;$("feedback").className="error";$("answer").textContent="No successful inference result.";$("raw").textContent="Request failed.";["source","latency","tokens","request-id"].forEach(id=>$(id).textContent="—");}
+ finally{$("run").disabled=false;$("run").textContent="Run inference";if(!$("feedback").classList.contains("error"))$("feedback").className="muted";}
+});
+$("export").addEventListener("click",()=>{if(!lastResult)return;const blob=new Blob([JSON.stringify(lastResult,null,2)],{type:"application/json"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="naijacyber-playground-result.json";a.click();URL.revokeObjectURL(url);});
+checkStatus();
+</script>
+</body></html>
