@@ -1,0 +1,21 @@
+{
+  "language": "Hausa",
+  "question": "Explain why multi-factor authentication matters.",
+  "request": "Respond in Hausa. Explain clearly for a Nigerian cybersecurity beginner. Explain why multi-factor authentication matters.",
+  "response": {
+    "answer": "Multi-factor authentication (MFA) yana nufin amfani da akalla hanyoyi biyu daban-daban don tabbatar da asalin mai amfani kafin samun damar shiga asusun banki ko kuma wata muhimmiyar jami'a. Wannan ya haɗa da haɗakar abubuwa guda uku:\n\n1. Ilimi (Abin da kuka sani): Kuna buƙatar sanin kalmar sirri ta musamman ko lambar PIN.\n2. Mallaka (Wanda kuke da shi): Kuna buƙatar mallakar na'urar wayar hannu, kwamfutar tafi-da-gidanka, ko maɓallin tsaro.\n3. Inherence (Ko ku ne): Kuna buƙatar yin wasu halayen jiki kamar bugun jini ko tantance fuska.\n\nMisali na MFA shine lokacin da kake amfani da kalmar sirri da lambobin da aka samo daga manhajar mai inganci. Wannan yana sa ya zama da wahala ga mutane marasa izini su shiga asusu ba tare da izinin ku ba.\n\nMFA yana da mahimmanci saboda yana rage haɗarin hacking da satar bayanan sirri sosai. Ko da kun yi mafarkin kalmar sirrinku ko lambar OTP,",
+    "provider": "natlas-configured",
+    "model": "NCAIR1/N-ATLaS",
+    "latency_ms": 21814.32,
+    "model_verified": false,
+    "inference_seconds": 20.92,
+    "completion_tokens": 320,
+    "request_id": "48d34254bb3b4de98ba2edff9b8b2dad",
+    "topic": "mfa",
+    "review_warnings": [
+      "possible_token_limit",
+      "possibly_incomplete_ending"
+    ]
+  },
+  "client_round_trip_ms": 21824
+}
