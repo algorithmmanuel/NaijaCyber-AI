@@ -1,0 +1,18 @@
+{
+  "language": "English",
+  "question": "Explain why multi-factor authentication matters.",
+  "request": "Respond in English. Explain clearly for a Nigerian cybersecurity beginner. Explain why multi-factor authentication matters.",
+  "response": {
+    "answer": "Multi-factor authentication (MFA) matters because it provides an additional layer of security beyond just a password or PIN. This means that even if someone knows your login credentials, they won't be able to access your account without another form of verification, such as a code sent to your phone or a biometric scan like a fingerprint.\n\nFor instance, when using MFA, you might enter your username and password to log into an account, then receive a six-digit code via SMS which you must also input before gaining access. This adds an extra step and makes it much harder for unauthorized individuals to gain access to your information.",
+    "provider": "natlas-configured",
+    "model": "NCAIR1/N-ATLaS",
+    "latency_ms": 9819.55,
+    "model_verified": false,
+    "inference_seconds": 8.75,
+    "completion_tokens": 125,
+    "request_id": "2bb269c641f1465eb4772546c067898b",
+    "topic": "mfa",
+    "review_warnings": []
+  },
+  "client_round_trip_ms": 9828
+}
