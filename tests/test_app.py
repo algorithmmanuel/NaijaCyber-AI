@@ -1,8 +1,15 @@
 """Tests for the existing application; no external model or tunnel required."""
 
+import pytest
 from fastapi.testclient import TestClient
 
 from backend.main import app, natlas
+
+
+@pytest.fixture(autouse=True)
+def disable_beta_for_app_unit_tests(monkeypatch):
+    """Unit-test app routes without beta login; beta middleware has its own tests."""
+    monkeypatch.setenv("BETA_MODE", "0")
 
 
 client = TestClient(app)
