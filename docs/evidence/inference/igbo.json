@@ -1,0 +1,18 @@
+{
+  "language": "Igbo",
+  "question": "Explain how to create a strong password.",
+  "request": "Respond in Igbo. Explain clearly for a Nigerian cybersecurity beginner. Explain how to create a strong password.",
+  "response": {
+    "answer": "Iji mepụta paswọọdụ siri ike na NaijaCyber, tụlee ihe ndị a:\n\n1. Jikọta mkpụrụedemede dị iche iche (n'elu, ala, nkezi) na nọmba.\n2. Tinye akara pụrụ iche ma ọ bụ okwu pụrụ iche.\n3. Zere ojiji aha njirimara gị ma ọ bụ data nkeonwe.\n4. Gbanwee paswọọdụ kwa oge maka akaụntụ dị iche iche.\n\nNtuziaka a ga-enyere gị aka ịmepụta paswọọdụ siri ike, si otú ahụ chebe ozi gị n'ịntanetị.",
+    "provider": "natlas-configured",
+    "model": "NCAIR1/N-ATLaS",
+    "latency_ms": 13541.35,
+    "model_verified": false,
+    "inference_seconds": 12.65,
+    "completion_tokens": 194,
+    "request_id": "33ec998170d84cb9aa82593b711a87c7",
+    "topic": null,
+    "review_warnings": []
+  },
+  "client_round_trip_ms": 13550
+}
